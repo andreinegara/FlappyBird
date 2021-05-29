@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 4206072986445165373}
   - component: {fileID: 822636534245029354}
   m_Layer: 0
-  m_Name: pointsArea
+  m_Name: scoreArea
   m_TagString: pointsArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
