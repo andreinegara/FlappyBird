@@ -32,5 +32,6 @@ public class Life : MonoBehaviour
 		yield return new WaitForSeconds(0.8f);
 		
 		SceneManager.LoadScene(0);
+
 	}
 }

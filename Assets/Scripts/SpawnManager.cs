@@ -7,13 +7,37 @@ public class SpawnManager : MonoBehaviour
 
     public GameObject obstacles;
     private float randomY;
+    public float waitTime;
 
     // Start is called before the first frame update
     void Start()
     {
-        
-        InvokeRepeating("createObstacles", 3f,3f);
+        waitTime = 3f;
+
+        //InvokeRepeating("createObstacles", waitTime, waitTime);
+        StartCoroutine(Wait(waitTime));
+        //createObstacles();
+       
+  
     }
+
+
+    private IEnumerator Wait(float time)
+    {
+        yield return new WaitForSeconds(time);
+        while (true)
+        {
+            createObstacles();
+            
+            yield return new WaitForSeconds(waitTime);
+            
+        }
+    }
+
+   
+
+
+    
 
     void createObstacles()
     {

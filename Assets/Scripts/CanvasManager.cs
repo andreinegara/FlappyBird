@@ -11,9 +11,12 @@ public class CanvasManager : MonoBehaviour
 
     private GameObject pausePanel;
 
-    //flag that prevents Spacebar from starting the game in Paused Panel 
+    //Flag to be updated when the game is paused
+    //  also used in the PlayerJump script, to prevent jumping when paused
     public bool paused;
 
+
+    //Flag that prevents the game from reopening the first screen during the game
     private bool firstScreenActive;
 
     // Start is called before the first frame update
@@ -39,10 +42,11 @@ public class CanvasManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Tests if SpaceBar is pressed for the first time
         if (Input.GetKeyDown(KeyCode.Space) && !paused && firstScreenActive)
         {
             StartGame();
-            
+
             firstScreenActive = false;
         }
 
@@ -60,8 +64,9 @@ public class CanvasManager : MonoBehaviour
         firstpanel.SetActive(false);
     }
 
-    void PauseManager()
+    public void PauseManager()
     {
+        //If paused and not in the first Screen
         if (Time.timeScale == 0 && !firstScreenActive  )
         {
             Time.timeScale = 1;
@@ -69,6 +74,8 @@ public class CanvasManager : MonoBehaviour
             pausePanel.SetActive(false);
 
         }
+
+        //If not paused 
         else if(Time.timeScale == 1)
         {
             
@@ -77,4 +84,10 @@ public class CanvasManager : MonoBehaviour
             Time.timeScale = 0;
         }
     }
+
+    public void ExitGame(){
+        Application.Quit();
+
+    }
+
 }
