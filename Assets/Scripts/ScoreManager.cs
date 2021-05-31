@@ -9,6 +9,7 @@ public class ScoreManager : MonoBehaviour
     private Text recordText;
     private SpawnManager spawnManager;
     private int score=0;
+    private AudioSource au;
     public int record;
 
     void Start()
@@ -70,6 +71,11 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
+    void PlayScoreSound()
+    {
+        au = GetComponent<AudioSource>();
+        au.Play();
+    }
 
     void UpdateRecord()
     {
