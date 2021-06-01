@@ -6,19 +6,22 @@ using UnityEngine.SceneManagement;
 public class Life : MonoBehaviour
 {
 	private GameObject gameOverPanel;
+	private AudioSourceManager soundScript;
 
-    private void Start()
+	private void Start()
     {
 		gameOverPanel = GameObject.Find("GameOverPanel");
 		gameOverPanel.SetActive(false);
-		
+
+		soundScript = gameObject.GetComponent<AudioSourceManager>();
+
 	}
 
     public void OnTriggerEnter2D (Collider2D other){
 		
 		if (other.gameObject.CompareTag("Obstacle")){
 
-			
+			soundScript.PlayCrashSound();
 			gameOverPanel.SetActive(true);
 
 			StartCoroutine(Reload());

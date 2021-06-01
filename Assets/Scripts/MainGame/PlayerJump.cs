@@ -5,13 +5,14 @@ using UnityEngine;
 public class PlayerJump : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private AudioSource au;
+    private AudioSourceManager soundScript;
     public int jumpForce = 10;
     private GameObject canvas;
     // Start is called before the first frame update
     void Start()
     {
         canvas = GameObject.Find("Canvas");
+        soundScript = gameObject.GetComponent<AudioSourceManager>();
 
     }
 
@@ -28,8 +29,9 @@ public class PlayerJump : MonoBehaviour
     //Method that makes the player Jump
     public void MakePlayerJump(int force)
     {
-        au = GetComponent<AudioSource>();
-        au.Play();
+        //Accesses the script & plays the sound
+        soundScript.PlayJumpSound();
+       
         rb = GetComponent<Rigidbody2D>();
         rb.AddForce(Vector2.up * force, ForceMode2D.Impulse);
         
