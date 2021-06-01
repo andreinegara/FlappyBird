@@ -37,6 +37,7 @@ public class CanvasManager : MonoBehaviour
         paused = false;
 
         firstScreenActive = true;
+
     }
 
     // Update is called once per frame

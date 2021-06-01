@@ -12,19 +12,22 @@ public class ScoreManager : MonoBehaviour
     private AudioSource au;
     public int record;
 
+    //gets the login from PlayerPerf in order the display his record
+    private string nickname;
+
     void Start()
     {
         score = 0;
-        if (PlayerPrefs.HasKey("record"))
-        {
-            record = PlayerPrefs.GetInt("record");
-        }
-        else
-        {
-            record = 0;
-        }
+        
+        
+       
+        //stores the login in the nickname variable
+        nickname = PlayerPrefs.GetString("login");
+
+        record = PlayerPrefs.GetInt(nickname);
 
 
+        //Gets the texts
         scoreText = GameObject.Find("Score").GetComponent<Text>();
         recordText = GameObject.Find("Record").GetComponent<Text>();
 
@@ -82,9 +85,8 @@ public class ScoreManager : MonoBehaviour
         if (score > record)
         {
             record = score;
-            Debug.Log(record);
             recordText.text = "Record: " + record;
-            PlayerPrefs.SetInt("record", record);
+            PlayerPrefs.SetInt(nickname, record);
         }
 
     }

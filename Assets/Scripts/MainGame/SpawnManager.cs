@@ -14,17 +14,13 @@ public class SpawnManager : MonoBehaviour
     {
         waitTime = 3f;
 
-        //InvokeRepeating("createObstacles", waitTime, waitTime);
         StartCoroutine(Wait(waitTime));
-        //createObstacles();
-       
-  
     }
 
 
     private IEnumerator Wait(float time)
     {
-        yield return new WaitForSeconds(time);
+        //Continues to create obstacles with the updated waitTime
         while (true)
         {
             createObstacles();
@@ -33,9 +29,6 @@ public class SpawnManager : MonoBehaviour
             
         }
     }
-
-   
-
 
     
 

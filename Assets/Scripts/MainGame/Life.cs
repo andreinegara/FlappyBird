@@ -29,9 +29,9 @@ public class Life : MonoBehaviour
 	IEnumerator Reload()
     {
 	
-		yield return new WaitForSeconds(0.8f);
+		yield return new WaitForSeconds(0.6f);
 		
-		SceneManager.LoadScene(0);
+		SceneManager.LoadScene("MainGame");
 
 	}
 }
