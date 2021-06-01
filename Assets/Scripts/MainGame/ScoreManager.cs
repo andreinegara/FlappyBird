@@ -8,7 +8,7 @@ public class ScoreManager : MonoBehaviour
     private Text scoreText;
     private Text recordText;
     private SpawnManager spawnManager;
-    private int score=0;
+    private int score = 0;
     private AudioSource au;
     public int record;
 
@@ -18,9 +18,9 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         score = 0;
-        
-        
-       
+
+
+
         //stores the login in the nickname variable
         nickname = PlayerPrefs.GetString("login");
 
@@ -90,4 +90,12 @@ public class ScoreManager : MonoBehaviour
         }
 
     }
+
+    public void ResetRecord()
+    {
+        record = 0;
+        recordText.text = "Record: 0";
+        PlayerPrefs.SetInt(nickname, 0);
+    }
+
 }
